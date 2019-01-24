@@ -1,0 +1,26 @@
+<html>
+    <body style="margin-left:15px;">
+        <h1>당신이 입력한 텍스트는 {{ total }} 단어로 구성되어 있습니다.</h1>
+
+        <a href="{% url 'home' %}"> 다시하기 </a>
+
+        <h1>입력한 텍스트: </h1>
+        {{fulltext}}
+
+        <br>
+        
+        <h1>단어 카운트:</h1>
+        {% for word, countTotal in dictionary %}
+            {{ word }} : {{ countTotal }}
+                {% if word == "XXXX" %}
+                    {% if countTotal > 3 %} 
+                    <!-- 욕이 얼마이상 나오면 쓰지말라고 글씨가 나옵니다 -->
+                        <script> alert("YOU BETTER NOT TO USE BAD WORDS") </script>
+                        <h2 style="color:red">!!!YOU BETTER NOT TO USE BAD WORDS!!!</h2> 
+                    {% endif %}
+                {% endif %}
+            <br>
+        {% endfor %}
+        <br>
+    </body>
+</html>
